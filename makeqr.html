@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>IT Scan qrcode</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/scanqr.css">
+    <script src="js/qrcode.min.js"></script>
+</head>
+
+<body>
+    <header class="header-content">
+        <nav class="navbar">
+            <div class="lgbrand">
+                <span class="nav-logo">IT Scan</span>
+                <a class="nav-brand">คณะเทคโนโลยีสารสนเทศ</a>
+            </div>
+            <a>Support</a>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center py-5">
+            <div class="row col-6">
+                <a class="text">หมายเลขห้อง</a>
+                <div class="input-group mb-3">
+                    <input class="form-control" id="roomQr">
+                    <div class="input-group-append">
+                        <button class="btn" id="saveTestBtn" onclick="makeQr()" type="submit">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="QRScreen">
+            <div class="prtQr text-center">
+                <h1 id="roomID"></h1>
+                <span id="facultyMsg" style="color: #666666;"></span>
+                <div id="showQr" class="d-flex justify-content-center"></div>
+                <span id="detailMsg" style="color: #1eb059; margin-right: 0;"></span>
+                <span id="supportmsg" style="color: #666666;"></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function makeQr() {
+        var roomQr = document.getElementById('roomQr');
+        var showQr = document.getElementById('showQr');
+        if (roomQr.value.trim() !== '') {
+            showQr.innerHTML = '';
+            document.getElementById('roomID').innerHTML = roomQr.value;
+            facultyMsg.innerHTML = 'คณะ เทคโนโลยีสารสนเทศ';
+            detailMsg.innerHTML = 'สำหรับให้บุคลากรสแกนเพื่อเช็คอิน หรือเช็คเอ้าท์หลังเข้าคณะในแต่ละห้องในช่วง COVID-19';
+            supportmsg.innerHTML = 'www.it.kmitl.ac.th/Scanqr.co.th';
+            new QRCode(showQr, '127.0.0.1:5500/KMITL_IT_ROOM_' + roomQr.value);
+        } else {
+            return 0
+        }
+    }
+</script>
+</head>
+
+</html>

@@ -1,0 +1,36 @@
+body {
+    font-family: 'Mitr', sans-serif;
+}
+
+a.text {
+    font-size: 20px;
+}
+
+.prtQr span {
+    display: block;
+    margin: 1em;
+}
+
+.nav-logo {
+    font-size: 2em;
+    padding-left: 2vh;
+    color: #267994;
+}
+
+.header-content {
+    border-bottom: 2px solid #cccccc;
+}
+
+.qrboard {
+    background-color: #C5C9B8;
+    width: 100%;
+    color: #333333;
+    height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    float: none;
+}

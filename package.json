@@ -1,0 +1,23 @@
+{
+    "name": "itqr",
+    "version": "1.0.0",
+    "description": "IT Scanner COVID-19",
+    "main": "views/home.ejs",
+    "scripts": {
+        "test": "node views/home.ejs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ApichaJA/IT-QRScan.git"
+    },
+    "author": "Japanapi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ApichaJA/IT-QRScan/issues"
+    },
+    "dependencies": {
+        "ejs": "^3.1.3",
+        "express": "^4.17.1"
+    },
+    "homepage": "https://github.com/ApichaJA/IT-QRScan#readme"
+}

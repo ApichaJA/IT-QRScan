@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/scanqr.css">
-    <script src="js/qrcode.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/scanqr.css">
+    <script src="../js/qrcode.min.js"></script>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
             facultyMsg.innerHTML = 'คณะ เทคโนโลยีสารสนเทศ';
             detailMsg.innerHTML = 'สำหรับให้บุคลากรสแกนเพื่อเช็คอิน หรือเช็คเอ้าท์หลังเข้าคณะในแต่ละห้องในช่วง COVID-19';
             supportmsg.innerHTML = 'www.it.kmitl.ac.th/Scanqr.co.th';
-            new QRCode(showQr, '127.0.0.1:5500/KMITL_IT_ROOM_' + roomQr.value);
+            new QRCode(showQr, '127.0.0.1:5500/IT-' + roomQr.value);
         } else {
             return 0
         }

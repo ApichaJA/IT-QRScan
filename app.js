@@ -28,7 +28,7 @@ app.use('/js', express.static(__dirname + '/js'));
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    if (req.cookies.myCookie == "") {
+    if (typeof req.cookies.urCookie == "undefined") {
         res.render('home', { checkStatus: "SignIn" });
     } else {
         res.render('home', { checkStatus: "CheckIn" });
@@ -46,12 +46,12 @@ app.get('/makeqr', function(req, res) {
 
 //Set Cookie
 app.get('/createCk', function(req, res) {
-    res.cookie('myCookie', 'Japanapi62070216');
+    res.cookie('urCookie', 'Japanapi62070216');
     res.end('Create Cookie');
 })
 
 app.get('/deleteCk', function(req, res) {
-    res.clearCookie('myCookie');
+    res.clearCookie('urCookie');
     res.end('Del Cookie');
 })
 

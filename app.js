@@ -14,18 +14,25 @@ const client = new Client({
     database: "it_scanner"
 })
 
-client.connect()
-    .then(() => console.log("Connected"))
-    .then(() => client.query("select * from it_user"))
-    .then(results => console.table(results.rows))
-    .catch(e => console.log(e))
-    .finally(() => client.end())
+async function user_info() {
+    try {
+        const result = await client.query("select * from it_user");
+        return result.rows;
+    } catch (e) {
+        return [];
+    }
+}
 
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/js', express.static(__dirname + '/js'));
 
 
 app.set('view engine', 'ejs');
+
+app.get('/test', async(req, res) => {
+    const rows = await user_info();
+    res.send(JSON.stringify(rows));
+});
 
 app.get('/', function(req, res) {
     if (typeof req.cookies.urCookie == "undefined") {
@@ -53,6 +60,9 @@ app.get('/createCk', function(req, res) {
 app.get('/deleteCk', function(req, res) {
     res.clearCookie('urCookie');
     res.end('Del Cookie');
+
 })
+client.connect()
+    .finally(() => console.log("Connected"))
 
 app.listen(8080);

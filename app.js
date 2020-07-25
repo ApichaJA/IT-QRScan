@@ -26,7 +26,6 @@ async function user_info() {
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/js', express.static(__dirname + '/js'));
 
-
 app.set('view engine', 'ejs');
 
 app.get('/test', async(req, res) => {
@@ -36,14 +35,15 @@ app.get('/test', async(req, res) => {
 
 app.get('/', function(req, res) {
     if (typeof req.cookies.urCookie == "undefined") {
-        res.render('home', { checkStatus: "SignIn" });
+        res.render('index', { checkStatus: "SignIn" });
     } else {
-        res.render('home', { checkStatus: "CheckIn" });
+        res.render('index', { checkStatus: "CheckIn" });
     }
 });
 
 app.get('/room/:room', function(req, res) {
-    res.render('home', { room: req.params.room });
+    res.render('toRoom', { room: req.params.room });
+
 });
 
 app.get('/makeqr', function(req, res) {
